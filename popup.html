@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fobifiltr</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script src="categories.js"></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="icons/icon48.png" alt="" width="28" height="28" />
+        <div>
+          <h1>Fobifiltr</h1>
+          <p class="sub">Rozmazává ve videích na YouTube to, co nechceš vidět.</p>
+        </div>
+      </div>
+      <label class="switch" title="Zapnout nebo vypnout">
+        <input type="checkbox" id="enabled" />
+        <span></span>
+      </label>
+    </header>
+
+    <div class="status" id="status" data-state="idle">
+      <span class="dot"></span>
+      <span id="status-text">AI model se připravuje…</span>
+    </div>
+    <div class="bar" id="bar" hidden><div id="bar-fill"></div></div>
+
+    <section>
+      <h2>Co skrývat</h2>
+      <div class="cats" id="cats"></div>
+    </section>
+
+    <section>
+      <h2>Vlastní věci <span class="hint">anglicky, AI rozumí jen angličtině</span></h2>
+      <form id="custom-form" class="custom">
+        <input id="custom-input" type="text" placeholder="např. a scorpion" maxlength="40" autocomplete="off" />
+        <button type="submit">Přidat</button>
+      </form>
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <section>
+      <h2>Citlivost</h2>
+      <div class="seg" id="sensitivity">
+        <button type="button" data-v="low">Nízká</button>
+        <button type="button" data-v="medium">Střední</button>
+        <button type="button" data-v="high">Vysoká</button>
+      </div>
+      <p class="hint block">Vysoká skryje víc, ale občas i něco, co tam není.</p>
+    </section>
+
+    <section class="toggles">
+      <label class="row">
+        <span>
+          <strong>Přísný režim</strong>
+          <small>Video je rozmazané, dokud AI úsek neprověří.</small>
+        </span>
+        <span class="switch small"><input type="checkbox" id="strict" /><span></span></span>
+      </label>
+      <label class="row">
+        <span>
+          <strong>Ztlumit zvuk</strong>
+          <small>Během skryté scény vypne zvuk.</small>
+        </span>
+        <span class="switch small"><input type="checkbox" id="mute" /><span></span></span>
+      </label>
+    </section>
+
+    <footer>AI běží jen v tvém počítači. Ven se nic neposílá, jen se jednou stáhne model z Hugging Face.</footer>
+  </body>
+</html>

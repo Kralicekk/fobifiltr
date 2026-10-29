@@ -1,0 +1,49 @@
+video.fobi-blur {
+  filter: blur(60px) brightness(0.65) saturate(0.6) !important;
+}
+
+/* Náhledy nad posuvníkem jsou malé snímky z videa, taky v nich může být pavouk. */
+html.fobi-on .ytp-tooltip.ytp-preview .ytp-tooltip-bg,
+html.fobi-on .ytp-storyboard-framepreview,
+html.fobi-on .ytp-storyboard-framepreview-img {
+  filter: blur(10px) !important;
+}
+
+/* Náhledy videí na stránce: nález, nebo (přísný režim) ještě neprověřeno. */
+html.fobi-on .fobi-thumb-hit,
+html.fobi-on .fobi-thumb-wait {
+  filter: blur(14px) brightness(0.8) !important;
+}
+
+.fobi-badge {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 7px 14px;
+  border-radius: 999px;
+  background: rgba(18, 16, 28, 0.88);
+  color: #fff;
+  font: 500 13px/1.2 Roboto, Arial, sans-serif;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.fobi-badge button {
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.fobi-badge button:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
